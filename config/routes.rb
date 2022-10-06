@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   resources :tickets
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root  to: "tickets#index"
+  get "/tickets", to: "tickets#index"
 end

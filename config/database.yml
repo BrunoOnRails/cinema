@@ -23,7 +23,6 @@ default: &default
   username: postgres
   password: pg181920
   port: 5433
-  host: locahost
 
 development:
   <<: *default
