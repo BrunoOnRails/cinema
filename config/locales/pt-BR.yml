@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      ticket:"ingresso"
+
+    attributes:
+      ticket:
+        title: "Título"  
+        price: "Preço"
+        description: "Descrição"
