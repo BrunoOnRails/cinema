@@ -7,7 +7,10 @@
         <th>Título</th>
         <th>Preço</th>
         <th>Descrição</th>
-        <th colspan="3"></th>
+        <th>Vendendo</th>
+        <th>Data de Estreia</th>
+        <th>Sai de cartaz</th>
+        <th colspan="6"></th>
       </tr>
     </thead>
 
@@ -17,11 +20,14 @@
           <td><%= ticket.title %></td>
           <td><%= ticket.price %></td>
           <td><%= ticket.description %></td>
+          <td><%= ticket.selling %></td>
+          <td><%= ticket.date_int %></td>
+          <td><%= ticket.date_out %></td>
            <div class="btn-group" role="group" aria-label="Basic example">
             <td>
-              <button type="button" class="btn btn-primary"><%= link_to 'Mostrar', ticket %>Mostrar</button>
-              <button type="button" class="btn btn-primary"><%= link_to 'Editar', edit_ticket_path(ticket) %></button>
-              <button type="button" class="btn btn-danger"><%= link_to 'Excluir', ticket, method: :delete, data: { confirm: 'Tem certeza qued eseja excluir esse registro ?' } %></button>
+              <%= link_to 'Mostrar', ticket, class:'btn btn-primary'%>
+              <%= link_to 'Editar', edit_ticket_path(ticket), class:'btn btn-primary'%>
+              <%= link_to 'Excluir', ticket, method: :delete, data: { confirm: 'Tem certeza qued eseja excluir esse registro ?' }, class:'btn btn-danger'%>
             </td>
           </div>
         </tr>
@@ -30,5 +36,5 @@
   </table>
   <br>
 
-  <button type="button" class="btn btn-primary"> <%=link_to "Novo Ticket", new_ticket_path %></button>
+  <%=link_to "Novo Ticket", new_ticket_path, class:"btn btn-success"%>
 </div>  

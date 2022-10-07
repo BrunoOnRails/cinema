@@ -26,6 +26,16 @@
     <%= form.text_area :description %>
   </div>
 
+  <div class="field">
+    <%= form.label :date_int %>
+    <%= form.date_select :date_int %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_out %>
+    <%= form.date_select :date_out %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
