@@ -1,42 +1,29 @@
-<%= form_with(model: ticket) do |form| %>
-  <% if ticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
-
-      <ul>
-        <% ticket.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+<%= form_with(model: ticket, local: true) do |form| %>
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.number_field :price, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control', rows:5 %>
   </div>
 
-  <div class="field">
-    <%= form.label :date_int %>
-    <%= form.date_select :date_int %>
+  <div class="date_field">
+    <%= form.label :date_int %> 
+    <%= form.date_field :date_int , class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="date_field mb-2">
     <%= form.label :date_out %>
-    <%= form.date_select :date_out %>
+    <%= form.date_field :date_out, class: 'form-control' %>
   </div>
+  
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
 <% end %>

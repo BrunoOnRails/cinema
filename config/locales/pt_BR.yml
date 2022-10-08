@@ -4,7 +4,9 @@ pt-BR:
       ticket:"ingresso"
 
     attributes:
-      ticket:
+      ticket: 
         title: "Título"  
         price: "Preço"
         description: "Descrição"
+        date_out: "Data de saida"
+        date_int: "Data de estreia"
