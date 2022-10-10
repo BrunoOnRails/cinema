@@ -3,27 +3,55 @@
     <%= form.label :title %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
+  
+  <div class="container px-0 mb-2">
+    <div class="row gx-5 row-cols-5">
 
-  <div class="form-group">
-    <%= form.label :price %>
-    <%= form.number_field :price, class: 'form-control' %>
-  </div>
+      <div class="col">
+        <div class="form-group">
+          <%= form.label :price %>
+          <%= form.number_field :price, class: 'form-control' %>
+        </div>
+      </div>
+    </div> 
+  </div>   
 
   <div class="form-group">
     <%= form.label :description %>
     <%= form.text_area :description, class: 'form-control', rows:5 %>
   </div>
 
-  <div class="date_field">
-    <%= form.label :date_int %> 
-    <%= form.date_field :date_int , class: 'form-control' %>
+  <div class="container px-0 mb-2">
+    <div class="row gx-5 row-cols-5">
+
+      <div class="col">
+        <div class="form-group">
+          <%= form.label :date_int %> 
+          <%= form.date_field :date_int , class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <%= form.label :date_out %>
+          <%= form.date_field :date_out, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col">
+          <div class="form-group mb-2">
+            <%= form.label :max_capacity %>
+            <%= form.number_field :max_capacity, class: 'form-control' %>
+          </div>
+      </div>
+      
+    </div>
   </div>
 
-  <div class="date_field mb-2">
-    <%= form.label :date_out %>
-    <%= form.date_field :date_out, class: 'form-control' %>
-  </div>
-  
+  <div class="form-check form-switch">
+    <%= form.label :selling %>
+    <%= form.check_box :selling, class: 'form-check-input' %>
+  </div>  
 
   <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
 <% end %>

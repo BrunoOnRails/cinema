@@ -10,3 +10,5 @@ pt-BR:
         description: "Descrição"
         date_out: "Data de saida"
         date_int: "Data de estreia"
+        selling: "Vendendo"
+        max_capacity: "Capacidade máxima"
