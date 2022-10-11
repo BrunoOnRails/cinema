@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  <h1>Ingressos</h1>
+  <h1>Filmes</h1>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
@@ -20,14 +20,14 @@
           <td><%= ticket.title %></td>
           <td><%= ticket.price %></td>
           <td><%= ticket.description %></td>
-          <td><%= ticket.selling %></td>
-          <td><%= ticket.date_int %></td>
-          <td><%= ticket.date_out %></td>
+          <td><%= ticket.selling %></td>         
+          <td><%= ticket.date_int == nil ? ticket.date_int : l(ticket.date_int) %></td>
+          <td><%= ticket.date_out == nil ? ticket.date_out : l(ticket.date_out) %></td>
            <div class="btn-group" role="group" aria-label="Basic example">
             <td>
               <%= link_to 'Mostrar', ticket, class:'btn btn-primary'%>
               <%= link_to 'Editar', edit_ticket_path(ticket), class:'btn btn-primary'%>
-              <%= link_to 'Excluir', ticket, method: :delete, data: { confirm: 'Tem certeza qued eseja excluir esse registro ?' }, class:'btn btn-danger'%>
+              <%= link_to 'Excluir', ticket, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esse registro ?' }, class:'btn btn-danger'%>
             </td>
           </div>
         </tr>
