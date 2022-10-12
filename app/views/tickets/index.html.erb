@@ -20,7 +20,11 @@
           <td><%= ticket.title %></td>
           <td><%= ticket.price %></td>
           <td><%= ticket.description %></td>
-          <td><%= ticket.selling %></td>         
+          <td>
+            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" disabled>
+            <%=ticket.selling%>
+            <label class="btn btn-success" for="option1">"Sim"</label>
+          </td>
           <td><%= ticket.date_int == nil ? ticket.date_int : l(ticket.date_int) %></td>
           <td><%= ticket.date_out == nil ? ticket.date_out : l(ticket.date_out) %></td>
            <div class="btn-group" role="group" aria-label="Basic example">

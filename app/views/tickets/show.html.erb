@@ -1,8 +1,12 @@
-<%= @ticket.title %>
+<div class = "container mt-4">
+    <div class="card mb-3">
+     <div class="card-body">
+        <h5 class="card-title"><%= @ticket.title%></h5>
+        <p class="card-text"><%= @ticket.description %></p>
+        <p class="card-text"><small class="text-muted">Ultima Alteração: <%= l(@ticket.updated_at, format: :short ) %></small></p>
+     </div>   
+    </div>
 
-<%= @ticket.price %>
-
-<%= @ticket.description %>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+    <%= link_to 'Editar' , edit_ticket_path(@ticket), class:"btn btn-success" %>
+    <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>
+</div>
