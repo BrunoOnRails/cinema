@@ -24,7 +24,7 @@
               <img src="../../assets/check.png" class="img-selling" alt="Vedendo">
             <%else %>  
               <img src="../../assets/erro.png" class="img-selling" alt="Não esta vendendo">
-            <% end%>  
+            <%end %>  
           </td>
           <td><%= ticket.date_int == nil ? ticket.date_int : l(ticket.date_int) %></td>
           <td><%= ticket.date_out == nil ? ticket.date_out : l(ticket.date_out) %></td>
@@ -42,3 +42,4 @@
   <br>
 
   <%=link_to "Novo Filme", new_ticket_path, class:"btn btn-success"%>
+  </div>

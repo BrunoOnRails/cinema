@@ -1,8 +1,10 @@
+
 <div class = "container mt-4">
-    <div class="card mb-3">
+    <h1>Visualizar</h1>
+    <div class="shadow p-3 mb-5 bg-body rounded">
      <div class="card-body">
         <h5 class="card-title"><%= @ticket.title%></h5>
-        <p class="card-text"><%= @ticket.description %></p>
+        <p class="card-text"><%= @ticket.description.gsub("\n","<br>").html_safe %></p>
         <p class="card-text"><small class="text-muted">Ultima Alteração: <%= l(@ticket.updated_at, format: :short ) %></small></p>
      </div>   
     </div>
