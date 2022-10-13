@@ -1,1 +1,12 @@
 @import "bootstrap";
+
+.img-selling {
+    max-width: 30px;
+    max-height: 30px;
+    border: 0ch;
+}
+
+.td-selling{
+    text-align: center;
+    vertical-align: middle;
+}
