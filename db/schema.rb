@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_07_195803) do
+ActiveRecord::Schema.define(version: 2022_10_15_145811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hour_sessions", force: :cascade do |t|
+    t.bigint "session_id", null: false
+    t.time "hour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_hour_sessions_on_session_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "ticket_id", null: false
+    t.date "day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_sessions_on_ticket_id"
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.string "title"
@@ -27,4 +43,6 @@ ActiveRecord::Schema.define(version: 2022_10_07_195803) do
     t.integer "max_capacity"
   end
 
+  add_foreign_key "hour_sessions", "sessions"
+  add_foreign_key "sessions", "tickets"
 end
