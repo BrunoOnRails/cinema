@@ -16,9 +16,13 @@
     <tbody>
       <% @tickets.each do |ticket| %>
         <tr>
-          <td class= "td" ><%= ticket.title %></td>
+          <td class= "td" >
+            <%= link_to ticket, class:'text-black' do %>
+              <%= ticket.title %>
+            <% end%>  
+          </td>
           <td class= "td"><%= ticket.price %></td>
-          <td class= "td"><%= ticket.description.truncate(30)  %></td>
+          <td class= "td-description"><%= ticket.description.truncate(30)  %></td>
           <td class="td-selling">
             <% if ticket.selling == true %>
               <img src="../../assets/check.png" class="img-selling" alt="Vedendo">

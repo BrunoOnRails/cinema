@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_15_145811) do
+ActiveRecord::Schema.define(version: 2022_10_17_125711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 2022_10_15_145811) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["session_id"], name: "index_hour_sessions_on_session_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.integer "capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sessions", force: :cascade do |t|
