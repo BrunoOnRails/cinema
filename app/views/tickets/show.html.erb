@@ -4,6 +4,11 @@
     <div class="shadow p-3 mb-5 bg-body rounded">
      <div class="card-body">
         <h5 class="card-title"><%= @ticket.title%></h5>
+        <hr>
+        Em cartaz de <b><%= @ticket.date_int != nil ? l(@ticket.date_int) : @ticket.date_int %></b> até <b><%= @ticket.date_out != nil ? l(@ticket.date_out) : @ticket.date_out %></b><br> 
+        Vendendo: <img src= "<%= @ticket.selling == true ? "../../../assets/check.png" : "src= ../../../assets/erro.png" %>" class="img-selling-show">
+        <p>Preço: R$<%= @ticket.price%> </p>
+        <hr>
         <p class="card-text"><%= @ticket.description.gsub("\n","<br>").html_safe %></p>
         <p class="card-text"><small class="text-muted">Ultima Alteração: <%= l(@ticket.updated_at, format: :short ) %></small></p>
      </div>   
