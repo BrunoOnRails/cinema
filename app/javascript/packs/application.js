@@ -11,7 +11,7 @@ import "bootstrap/dist/js/bootstrap.bundle"
 
 import "../src/application.css"
 
-
+//= require jquery.mask
 
 Rails.start()
 ActiveStorage.start()

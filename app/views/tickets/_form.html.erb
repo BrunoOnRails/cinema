@@ -46,6 +46,23 @@
     <%= form.check_box :selling, class: 'form-check-input' %>
   </div>  
 
+  <%= form_with model: @session, local: true do |form| %>
+    <div class="container px-0 mb-2">
+      <div class="row gx-6 row-cols-6">
+
+        <div class="col">
+          <%= form.label :session %>
+          <%= form.text_field :session, class: "form-control time" %>
+        </div>
+      </div>
+    </div>
+  <% end%>
+
   <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
   <%= link_to 'Voltar', tickets_path, class: 'btn btn-secondary' %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8"> 
+    $('#js_telefone').mask('(99) 99999-9999');
+    $('#time').mask('00:00:00');
+</script>
