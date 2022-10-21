@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     models:
-      ticket:"Filme"
+      ticket: "Filme"
 
     attributes:
       ticket: 
