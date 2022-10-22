@@ -46,25 +46,6 @@
     <%= form.check_box :selling, class: 'form-check-input' %>
   </div>  
 
-  <%= form_with model: @sessions, local: true do |form| %>
-    <div class="container px-0 mb-2">
-      <div class="row gx-6 row-cols-6">
-
-        <div class="col">
-          <div class="form-group">
-            <%= form.label :day %> 
-            <%= form.date_field :day , class: 'form-control' %>
-          </div>
-        </div>
-
-        <div class="col time">
-          <%= form.label :session %>
-          <%= form.text_field :session, class: "form-control", placeholder: '20:00' %>
-        </div>
-      </div>
-    </div>
-  <% end%>
-
   <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
   <%= link_to 'Voltar', tickets_path, class: 'btn btn-secondary' %>
 

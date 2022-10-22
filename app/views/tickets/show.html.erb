@@ -16,4 +16,20 @@
 
     <%= link_to 'Editar' , edit_ticket_path(@ticket), class:"btn btn-success" %>
     <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>
+
+    <%= form_with model: @sessions, local: true do |form| %>
+        <%= form.hidden_field :ticket_id, value: @ticket_id %>
+        <div class="container px-0 mb-2">
+            <div class="row gx-6 row-cols-6">
+                <div class="col">
+                    <div class="form-group">
+                        <%= form.label :day %> 
+                        <%= form.date_field :day , class: 'form-control' %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
+    <% end%>
+
 </div>

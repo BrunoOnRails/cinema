@@ -1,12 +1,11 @@
 class SessionsControlelr < ApplicationController
     def create
-        @sessions = Sessions.new(sessions_params)
-
-        respond_to do |format|
-            if @sessions.save!
-                format.html { render :new, status: :unprocessable_entity }
-                format.json { render json: @sessions.errors, status: :unprocessable_entity 
-            end
-        end
+        sessions = Sessions.create!(sessions_param)
+        redirect_to sessions.ticket, notice: 'Sessão adicionada'
     end
+
+    def sessions_param
+        params.require(:sessions).permit(:day, :ticket_id)
+    end 
+
 end

@@ -8,13 +8,11 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1 or /tickets/1.json
   def show
-    @sessions = Sessions.new
   end
 
   # GET /tickets/new
   def new
     @ticket = Ticket.new
-    @sessions = Sessions.new
   end
 
   # GET /tickets/1/edit
