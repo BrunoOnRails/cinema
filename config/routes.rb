@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get "/tickets", to: "tickets#index"
   
   resources :tickets
-  resources :sessions
+  resources :sessions, only: %i[create]
 end

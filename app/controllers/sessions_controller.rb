@@ -1,11 +1,13 @@
-class SessionsControlelr < ApplicationController
+class SessionsController < ApplicationController
     def create
-        sessions = Sessions.create!(sessions_param)
-        redirect_to sessions.ticket, notice: 'Sessão adicionada'
+        session = Session.create!(sessions_params)
+        redirect_to session.ticket, notice: 'Sessão adicionada'
     end
 
-    def sessions_param
-        params.require(:sessions).permit(:day, :ticket_id)
+    private 
+
+    def sessions_params
+        params.require(:session).permit(:day, :ticket_id)
     end 
 
 end

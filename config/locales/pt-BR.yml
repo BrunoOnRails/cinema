@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       ticket: "Filme"
+      sessions: "Sessão"
 
     attributes:
       ticket: 
@@ -12,4 +13,6 @@ pt-BR:
         date_int: "Data de estreia"
         selling: "Vendendo"
         max_capacity: "Capacidade máxima"
-  
+      sessions:
+        day: "Dia"
+

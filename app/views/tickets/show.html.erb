@@ -18,7 +18,7 @@
     <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>
 
     <%= form_with model: @sessions, local: true do |form| %>
-        <%= form.hidden_field :ticket_id, value: @ticket_id %>
+        <%= form.hidden_field :ticket_id, value: @ticket.id %>
         <div class="container px-0 mb-2">
             <div class="row gx-6 row-cols-6">
                 <div class="col">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
+        <%= form.submit 'adicionar', class: 'btn btn-primary', data: {disable_with: 'Adicionando'} %> 
     <% end%>
 
 </div>
