@@ -9,6 +9,9 @@ class TicketsController < ApplicationController
   # GET /tickets/1 or /tickets/1.json
   def show
     @session = Session.new
+    @sessions = @ticket.session
+    @hourSession = HourSession.new
+    @hourSessions = @session.hour_session
   end
 
   # GET /tickets/new

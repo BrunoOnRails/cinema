@@ -2,34 +2,49 @@
 <div class = "container mt-4">
     <h1>Visualizar</h1>
     <div class="shadow p-3 mb-5 bg-body rounded">
-     <div class="card-body">
-        <h5 class="card-title"><%= @ticket.title%></h5>
-        <hr>
-        Em cartaz de <b><%= @ticket.date_int != nil ? l(@ticket.date_int) : @ticket.date_int %></b> até <b><%= @ticket.date_out != nil ? l(@ticket.date_out) : @ticket.date_out %></b><br> 
-        Vendendo: <img src= "<%= @ticket.selling == true ? "../../../assets/check.png" : "src= ../../../assets/erro.png" %>" class="img-selling-show">
-        <p>Preço: R$<%= @ticket.price%> </p>
-        <hr>
-        <p class="card-text"><%= @ticket.description.gsub("\n","<br>").html_safe %></p>
-        <p class="card-text"><small class="text-muted">Ultima Alteração: <%= l(@ticket.updated_at, format: :short ) %></small></p>
-     </div>   
+        <div class="card-body">
+            <h5 class="card-title"><%= @ticket.title%></h5>
+            <hr>
+            Em cartaz de <b><%= @ticket.date_int != nil ? l(@ticket.date_int) : @ticket.date_int %></b> até <b><%= @ticket.date_out != nil ? l(@ticket.date_out) : @ticket.date_out %></b><br> 
+            Vendendo: <img src= "<%= @ticket.selling == true ? "../../../assets/check.png" : "src= ../../../assets/erro.png" %>" class="img-selling-show">
+            <p>Preço: R$<%= @ticket.price%> </p>
+            <hr>
+            <h5>Descrição</h5>
+            <p class="card-text"><%= @ticket.description.gsub("\n","<br>").html_safe %></p>
+            <p class="card-text"><small class="text-muted">Ultima Alteração da descrição: <%= l(@ticket.updated_at, format: :short ) %></small></p>
+            <hr>
+            <h5>Sessões</h5>
+            <% @sessions.each do |sessions| %>
+                <div class=""shadow-sm m-3 p-3 bg-light rounded  >
+                    <div class="row">
+                        <div class="col">
+                            <%= sessions.day %>
+                        </div>
+                        <div class="col">
+                            colocar hora aqui
+                        </div>
+                    </div>
+                </div>
+            <%end%>
+        </div>   
     </div>
 
-    <%= link_to 'Editar' , edit_ticket_path(@ticket), class:"btn btn-success" %>
-    <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>
-
-    <%= form_with model: @sessions, local: true do |form| %>
+    <%= form_with model: @session, local: true do |form| %>
         <%= form.hidden_field :ticket_id, value: @ticket.id %>
         <div class="container px-0 mb-2">
             <div class="row gx-6 row-cols-6">
                 <div class="col">
-                    <div class="form-group">
-                        <%= form.label :day %> 
-                        <%= form.date_field :day , class: 'form-control' %>
+                <%= form.label :day %> 
+                    <div class="form-group d-inline-flex">
+                        <%= form.date_field :day , class: 'form-control data-b' %>
+                        <%= form.submit 'adicionar', class: 'btn btn-primary', data: {disable_with: 'Adicionando'} %> 
                     </div>
                 </div>
             </div>
         </div>
-        <%= form.submit 'adicionar', class: 'btn btn-primary', data: {disable_with: 'Adicionando'} %> 
-    <% end%>
+    <%end%>
 
+    <%= link_to 'Editar' , edit_ticket_path(@ticket), class:"btn btn-success" %>
+    <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>
+    <p>    
 </div>
