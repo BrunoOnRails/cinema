@@ -13,38 +13,45 @@
             <p class="card-text"><%= @ticket.description.gsub("\n","<br>").html_safe %></p>
             <p class="card-text"><small class="text-muted">Ultima Alteração da descrição: <%= l(@ticket.updated_at, format: :short ) %></small></p>
             <hr>
-            <h5>Sessões</h5>
-            <% @sessions.each do |sessions| %>
-                <div class=""shadow-sm m-3 p-3 bg-light rounded  >
-                    <div class="row">
-                        <div class="col">
-                            <%= sessions.day %>
-                        </div>
-                        <div class="col">
-                            colocar hora aqui
-                        </div>
+
+            <div class="container px-0 mb-2">
+                <div class="row justify-content-start">
+                    <div class="col-2">
+                        <% @sessions.each do |sessions| %>
+                            <div class="col"><%= sessions.day %></div>
+                        <%end%>
+                    </div>
+                    <div class="col-2">
+                        <% @hourSessions.each do |hourSessions| %>
+                            <div class="col"><%= hourSessions.hour %></div>
+                        <%end%>
                     </div>
                 </div>
-            <%end%>
+            </div> 
         </div>   
     </div>
+    
+       
 
-    <%= form_with model: @session, local: true do |form| %>
-        <%= form.hidden_field :ticket_id, value: @ticket.id %>
-        <div class="container px-0 mb-2">
-            <div class="row gx-6 row-cols-6">
-                <div class="col">
+    <div class="row g-1">
+        <div class="col-sm-2">
+            <%= form_with model: @session, local: true do |form| %>
+                <%= form.hidden_field :ticket_id, value: @ticket.id %>
                 <%= form.label :day %> 
-                    <div class="form-group d-inline-flex">
-                        <%= form.date_field :day , class: 'form-control data-b' %>
-                        <%= form.submit 'adicionar', class: 'btn btn-primary', data: {disable_with: 'Adicionando'} %> 
-                    </div>
-                </div>
-            </div>
+                <%= form.date_field :day, class: 'form-control data-b mb-2' %>
+                <%= form.submit 'adicionar', class: 'btn btn-primary mb-2', data: {disable_with: 'Adicionando'} %> 
+            <%end%>
         </div>
-    <%end%>
-
+        <div class="col-sm-2">
+            <%= form_with model: @hour_session, local: true do |form| %>
+                <%= form.hidden_field :session_id, value: @hourSession.id %>
+                <%= form.label :hour %> 
+                <%= form.text_field :hour, class: 'form-control data-b mb-2' %>
+                <%= form.submit 'adicionar', class: 'btn btn-primary mb-2', data: {disable_with: 'Adicionando'} %> 
+            <%end%>
+        </div>
+    </div>
+    
     <%= link_to 'Editar' , edit_ticket_path(@ticket), class:"btn btn-success" %>
-    <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>
-    <p>    
+    <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>  
 </div>

@@ -5,6 +5,7 @@ pt-BR:
       sessions: "Sessão"
 
     attributes:
+
       ticket: 
         title: "Título"  
         price: "Preço"
@@ -13,6 +14,9 @@ pt-BR:
         date_int: "Data de estreia"
         selling: "Vendendo"
         max_capacity: "Capacidade máxima"
-      sessions:
+
+      session:
         day: "Dia"
 
+      hour_session:
+        hour: "Hora"
