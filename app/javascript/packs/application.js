@@ -12,3 +12,9 @@ import "../src/application.css"
 
 Rails.start()
 ActiveStorage.start()
+
+//= require jquery
+//= require cocoon
+//= require rails-ujs
+//= require turbolinks
+//= require_tree

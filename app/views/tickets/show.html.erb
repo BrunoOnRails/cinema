@@ -31,27 +31,6 @@
         </div>   
     </div>
     
-       
-
-    <div class="row g-1">
-        <div class="col-sm-2">
-            <%= form_with model: @session, local: true do |form| %>
-                <%= form.hidden_field :ticket_id, value: @ticket.id %>
-                <%= form.label :day %> 
-                <%= form.date_field :day, class: 'form-control data-b mb-2' %>
-                <%= form.submit 'adicionar', class: 'btn btn-primary mb-2', data: {disable_with: 'Adicionando'} %> 
-            <%end%>
-        </div>
-        <div class="col-sm-2">
-            <%= form_with model: @hour_session, local: true do |form| %>
-                <%= form.hidden_field :session_id, value: @hourSession.id %>
-                <%= form.label :hour %> 
-                <%= form.text_field :hour, class: 'form-control data-b mb-2' %>
-                <%= form.submit 'adicionar', class: 'btn btn-primary mb-2', data: {disable_with: 'Adicionando'} %> 
-            <%end%>
-        </div>
-    </div>
-    
     <%= link_to 'Editar' , edit_ticket_path(@ticket), class:"btn btn-success" %>
     <%= link_to 'Voltar', tickets_path , class:"btn btn-secondary" %>  
 </div>

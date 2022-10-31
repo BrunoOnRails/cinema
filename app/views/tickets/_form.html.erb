@@ -46,6 +46,29 @@
     <%= form.check_box :selling, class: 'form-check-input' %>
   </div>  
 
+  <div class="row g-1">
+    <div class="col-sm-2" id="sessions">
+        <%= form.fields_for :sessions do |session| %>
+            <%= form.label :day %> 
+            <%= form.date_field :day, class: 'form-control data-b mb-2' %>
+            <div class="links">
+              <%= link_to_add_association 'add sessions', form, :ticket %>
+              <br><br>
+            </div>
+        <%end%>
+    </div>
+    <div class="col-sm-2" id="hourSessions">
+        <%= form.fields_for :hourSessions do |hourSession| %>
+            <%= form.label :hour %> 
+            <%= form.text_field :hour, class: 'form-control data-b mb-2' %>
+            <div class="links">
+              <%= link_to_add_association 'add experience', form, :hourSessions %>
+              <br><br>
+            </div>
+        <%end%>
+    </div>
+</div>
+
   <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
   <%= link_to 'Voltar', tickets_path, class: 'btn btn-secondary' %>
 
