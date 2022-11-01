@@ -18,3 +18,6 @@ ActiveStorage.start()
 //= require rails-ujs
 //= require turbolinks
 //= require_tree
+
+require('jquery')
+import "cocoon";

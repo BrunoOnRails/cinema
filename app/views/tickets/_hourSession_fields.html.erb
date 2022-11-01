@@ -4,12 +4,12 @@
 <div class="nested-fields">
   <div class="field">
     <%= f.label :hour %>
-    <%= f.text_field :hour %>
+    <%= f.text_field :hour, class: 'form-control data-b mb-2' %>
   </div>
   <!-- COMENTÁRIO:
     link_to_remove_association é o helper que o cocoon nos fornece para deletar algum nested
   -->
-  <%= link_to_remove_association "remove hour", f %>
+   
  
   <br><br><br>
 </div>

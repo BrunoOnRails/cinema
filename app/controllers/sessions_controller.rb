@@ -1,9 +1,19 @@
 class SessionsController < ApplicationController
     before_action :set_sessions, only: %i[ show edit update destroy ]
 
+    def new
+      @session = Session.new
+      @session = @ticket.sessions.build
+    end
+
     def create
         session = Session.create!(sessions_params)
         redirect_to session.ticket, notice: 'Sessão adicionada'
+    end
+
+    def show
+      @ticket = Ticket.new(sessions_params)
+      @session = @ticket.sessions.build
     end
 
     def destroy
@@ -18,7 +28,7 @@ class SessionsController < ApplicationController
     private 
 
     def sessions_params
-        params.require(:session).permit(:day, :ticket_id)
+        params.require(:session).permit(:day, :ticket_id, hourSessions_attributes: [:id, :session_id, :day, :_destroy ])
     end 
 
 end
