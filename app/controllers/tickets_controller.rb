@@ -20,8 +20,9 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @session = Session.new
+    @hour_sessions = HourSession.new
     @ticket = @ticket.session.build
-    @session = @session.hour_session.build
+    @sessions = @session.hour_session.build
   end
 
   # GET /tickets/1/edit
@@ -74,6 +75,6 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.require(:ticket).permit(:title, :price, :description, :date_int, :date_out, :selling, :max_capacity, session_attributes: [:date, :_destroy], hourSession_attributes: [:hour_session, :_destroy])
+      params.require(:ticket).permit(:title, :price, :description, :date_int, :date_out, :selling, :max_capacity, session_attributes: [:day, :_destroy], hourSession_attributes: [:hour, :_destroy])
     end
 end
