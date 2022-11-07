@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     def new
       @session = Session.new
       @session = @ticket.sessions.build
+      @hourSession = @sessions.hour_sessions.build
     end
 
     def create
@@ -17,6 +18,8 @@ class SessionsController < ApplicationController
     def show
       @ticket = Ticket.new(sessions_params)
       @session = @ticket.sessions.build
+      @hourSession = HourSession.new
+      @hourSessions = @session.hour_sessions
     end
 
     def destroy

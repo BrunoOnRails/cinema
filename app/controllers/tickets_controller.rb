@@ -9,20 +9,13 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
-    @session = Session.new
-    @hourSession = HourSession.new
-    @sessions = @ticket.session.build
-    @hourSession = @session.hour_session.build
+    @sessions = @ticket.sessions.build
   end
 
   # GET /tickets/1 or /tickets/1.json
   def show
     @session = Session.new
-    @sessions = @ticket.session
-    @hourSession = HourSession.new
-    @hourSessions = @session.hour_session
-    # @ticket.session.build
-    # @session.hour_session.build
+    @sessions = @ticket.sessions
   end
 
   # GET /tickets/1/edit
@@ -33,14 +26,10 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
 
-    respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to ticket_url(@ticket), notice: "Ticket was successfully created." }
-        format.json { render :show, status: :created, location: @ticket }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    if @ticket.save
+      redirect_to ticket_path(@ticket)
+    else
+      render action: :new
     end
   end
 
@@ -68,13 +57,13 @@ class TicketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_ticket
       @ticket = Ticket.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.require(:ticket).permit(:title, :price, :description, :date_int, :date_out, :selling, :max_capacity, sessions_attributes: [:day, :_destroy], hourSessions_attributes: [:hour, :_destroy])
+      params.require(:ticket).permit(:title, :price, :description, :date_int, :date_out, :selling, :max_capacity, sessions_attributes: [:id, :day, :_destroy], hourSessions_attributes: [:id, :hour, :_detroy])
     end
 end

@@ -6,7 +6,6 @@
   
   <div class="container px-0 mb-2">
     <div class="row gx-5 row-cols-5">
-
       <div class="col">
         <div class="form-group">
           <%= form.label :price %>
@@ -46,25 +45,15 @@
     <%= form.check_box :selling, class: 'form-check-input' %>
   </div>  
 
-  <div id="sessions">
-    <div class="row g-1">
-      <div class="col-sm-2" id="sessions">
-          <%= form.fields_for :sessions do |session| %>
-            <%= render 'session_fields', f: session %>
-          <%end%>
+    <div id="sessions">
+      <%= form.fields_for :sessions do |session| %>
+        <%= render 'session_fields', f: session %>
+      <%end%>  
+      <div>
+        <%= link_to_add_association "Adicionar sessão", form, :sessions, class: 'btn btn-info'%>
       </div>
-
-      <div class="col-sm-2" id="hourSessions">
-          <%= form.fields_for :hourSessions do |hourSession| %>
-            <%= render 'hourSession_fields', f: hourSession %>
-          <%end%>
-      </div>
-    </div>
-  </div>  
-
+    </div> 
+  <br>
   <%= form.submit class: 'btn btn-primary', data: {disable_with: 'Criando'} %> 
   <%= link_to 'Voltar', tickets_path, class: 'btn btn-secondary' %>
-
-</div>
-
 <% end %>

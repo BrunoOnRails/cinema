@@ -1,15 +1,15 @@
-<!-- COMENTÁRIO:
-  Dentro da partial todo conteúdo deve estar dentro de uma div .nested-fields
--->
-<div class="nested-fields">
-  <div class="field">
-    <%= f.label :day %>
-    <%= f.date_field :day, class: 'form-control data-b mb-2' %>
+<div class="container px-0 mb-2">
+  <div class="row gx-5 row-cols-5">
+    <div class="col">
+      <div class="nested-fields">
+        <div class="field">
+        <div class=" form-group">
+            <%= f.label :day %>
+            <%= f.date_field :day, class: 'form-control data-b mb-5' %>
+            <%= link_to_remove_association "Remover Sessão", f, class:"btn btn-danger" %>
+          </div>  
+        </div>
+      </div>
+    </div>  
   </div>
-  <!-- COMENTÁRIO:
-    link_to_remove_association é o helper que o cocoon nos fornece para deletar algum nested
-  -->
-  
- 
-  <br><br><br>
-</div>
+</div>  
