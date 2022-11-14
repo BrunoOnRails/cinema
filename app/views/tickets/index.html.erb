@@ -18,7 +18,7 @@
         <tr>
           <td class= "td" >
             <%= link_to ticket, class:'text-black' do %>
-              <%= ticket.title %>
+              <%= ticket.title.truncate(25) %>
             <% end%>  
           </td>
           <td class= "td"><%= ticket.price %></td>

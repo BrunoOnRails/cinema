@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_125711) do
+ActiveRecord::Schema.define(version: 2022_11_12_121253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_125711) do
     t.date "date_out"
     t.boolean "selling"
     t.integer "max_capacity"
+    t.string "slug"
   end
 
   add_foreign_key "hour_sessions", "sessions"

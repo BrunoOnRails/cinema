@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'net-smtp'
 gem 'rails-i18n'
 gem 'cocoon'
+gem 'friendly_id'
+gem 'pg_search'

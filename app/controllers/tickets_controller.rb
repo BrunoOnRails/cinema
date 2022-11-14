@@ -3,7 +3,11 @@ class TicketsController < ApplicationController
 
   # GET /tickets or /tickets.json
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.order(created_at: :desc)
+  end
+
+  def search
+    @tickets = Ticket.search(search_params[:q])
   end
 
   # GET /tickets/new
@@ -59,11 +63,15 @@ class TicketsController < ApplicationController
   private
   
     def set_ticket
-      @ticket = Ticket.find(params[:id])
+      @ticket = Ticket.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def ticket_params
       params.require(:ticket).permit(:title, :price, :description, :date_int, :date_out, :selling, :max_capacity, sessions_attributes: [:id, :day, :_destroy], hourSessions_attributes: [:id, :hour, :_detroy])
     end
+def search_params
+  params.permit(:q)
+end
+
 end

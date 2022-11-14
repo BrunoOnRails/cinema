@@ -1,0 +1,10 @@
+<div class="text-muted">
+    <% if @tickets.any?%>
+        <%= @tickets.count%> resultados encontrados
+    <% else %>
+        Nenhum resultado encontrado
+    <% end %>
+</div> 
+
+<div class="text-right">
+    <%= link_to "Criar novo Filme", new_ticket_path, class: 'btn btn-primary' %>
